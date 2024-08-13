@@ -7,14 +7,14 @@ const Nav = () => {
         <div className='w-[22vw] items-center flex '>
             <img src="" alt="" /><p>Logo</p>
         </div>
-        <div className='w-[80vw] flex items-center justify-between py-4 uppercase font-semibold'>
-            <Link to="/" className='hover:text-[#75A500]' >Home</Link>
-            <Link to="/" className='hover:text-[#75A500]' >Messangers Bags</Link>
-            <Link to="/" className='hover:text-[#75A500]' >Totes</Link>
-            <Link to="/" className='hover:text-[#75A500]' >BagPacks</Link>
-            <Link to="/" className='hover:text-[#75A500]' >Duffel Bags</Link>
-            <Link to="/" className='hover:text-[#75A500]' >Dopp Kits</Link>
-            <Link to="/" className='hover:text-[#75A500]' >Journals</Link>
+        <div className='w-[80vw] flex items-center justify-between py-4 uppercase font-bold'>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Home</Link>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Messangers Bags</Link>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Totes</Link>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >BagPacks</Link>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Duffel Bags</Link>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Dopp Kits</Link>
+            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Journals</Link>
             <HiOutlineShoppingBag />
 
             

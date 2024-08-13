@@ -38,7 +38,7 @@ const Carousel = ({ images }) => {
         <FaChevronRight size={30} />
       </div>
       {/* Dots */}
-      <div className="flex justify-center py-2">
+      {/* <div className="flex justify-center py-2 ">
         {images.map((_, index) => (
           <div
             key={index}
@@ -48,7 +48,7 @@ const Carousel = ({ images }) => {
             onClick={() => setCurrentIndex(index)}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
