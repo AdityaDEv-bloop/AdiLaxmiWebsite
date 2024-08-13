@@ -7,7 +7,7 @@ const ProductCard = () => {
 
   return (
     <div
-      className="relative group shadow-lg w-full md:w-[40%] lg:w-[25%] "
+      className="relative group shadow-lg w-full md:w-[40%] lg:w-[24%] "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

@@ -5,7 +5,7 @@ const HoverCard = () => {
 
   return (
     <div
-      className="w-96 h-60 border-2 transition-all ease-in-out "
+      className="w-96 relative h-60 border-2 transition-all ease-in-out "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -17,6 +17,9 @@ const HoverCard = () => {
         }
         alt=""
       />
+      <h1 className="absolute h-full w-full  top-0 text-4xl text-white   flex items-center">
+        <p className="font-semibold"> Any Text</p>
+      </h1>
     </div>
   );
 };
