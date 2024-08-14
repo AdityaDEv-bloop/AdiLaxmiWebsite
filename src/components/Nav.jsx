@@ -9,7 +9,7 @@ const Nav = () => {
         </div>
         <div className='w-[80vw] flex items-center justify-between py-4 uppercase font-bold'>
             <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Home</Link>
-            <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Messangers Bags</Link>
+            <Link to="/messangersbags" className='hover:text-[#75A500] font-semibold text-sm' >Messangers Bags</Link>
             <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Totes</Link>
             <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >BagPacks</Link>
             <Link to="/" className='hover:text-[#75A500] font-semibold text-sm' >Duffel Bags</Link>

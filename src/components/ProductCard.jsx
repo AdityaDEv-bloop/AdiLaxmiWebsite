@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { FaHeart, FaSearch, FaExchangeAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 
 const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate(); // Use useNavigate
+
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`); // Use navigate instead of history.push
+  };
 
   return (
     <div
-      className="relative group shadow-lg w-full md:w-[40%] lg:w-[24%]"
+      className="relative group shadow-lg w-full md:w-[40%] lg:w-[24%] cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       {/* Discount Badge */}
       <div className="absolute top-4 left-4 bg-red-500 z-20 text-white text-xs font-bold px-2 py-1 rounded">
@@ -23,7 +30,7 @@ const ProductCard = ({ product }) => {
               ? `${product.thumbnailUrl}`
               : "https://via.placeholder.com/300"
           }
-          // alt={product.title}
+          alt={product.title}
           className="w-full h-auto transition-transform duration-300 transform group-hover:scale-105"
         />
 
@@ -53,7 +60,7 @@ const ProductCard = ({ product }) => {
 
       {/* Product Details */}
       <div className="py-2 flex justify-between">
-        {/* <h3 classN  ame="text-md font-semibold text-gray-700">{product.title}</h3> */}
+        <h3 className="text-md font-semibold text-gray-700 capitalize">{product.title}</h3>
         <div className="text-md font-semibold text-end">Rs. 10000/-</div>
       </div>
     </div>
