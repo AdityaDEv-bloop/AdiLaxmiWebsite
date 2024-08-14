@@ -46,13 +46,14 @@ const ProductDetail = () => {
             </li>
           </ol> */}
         </div>
+        {console.log(product)}
       </div>
 
       <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
         <div className="col-span-5">
           <div className="transition duration-150 ease-in hover:opacity-90">
             <img
-              src={product.url}
+              src={product.thumbnailUrl}
               alt={product.title}
               className="w-full object-cover"
             />
