@@ -17,7 +17,7 @@ function RecentlyViewed() {
   }, []);
 
   return (
-    <div className="">
+    <div className="px-8">
       <div className="flex justify-between items-center border-b-[1px]">
         <h1 className="text-2xl uppercase font-semibold my-4">
           Recently Viewed

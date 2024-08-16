@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { IoIosArrowForward, IoMdClose } from "react-icons/io";
+import BestSelling from "../components/BestSelling.jsx";
 import Carousel from "../components/Carousel";
-import ReviewCarousel from "../components/ReviewCarousel";
-import ProductCard from "../components/ProductCard";
-import HoverCard from "../components/HoverCard";
-import SideBar from "../components/SideBar";
-import NewProductsList from "../components/NewProductsList";
 import FeatureHighlights from "../components/FeatureHighlights";
-import RecentlyViewed from "../components/RecentlyViewed";
+import HomeFooterCards from "../components/HomeFooterCards";
+import HoverCard from "../components/HoverCard";
+import NewProductsList from "../components/NewProductsList";
 import ProductCategories from "../components/ProductCategories";
-import { IoIosArrowBack, IoIosArrowForward, IoMdMenu } from "react-icons/io";
-import { MdArrowOutward } from "react-icons/md";
+import RecentlyViewed from "../components/RecentlyViewed";
+import ReviewCarousel from "../components/ReviewCarousel";
+import SideBar from "../components/SideBar";
+import TopSelling from "../components/TopSelling.jsx";
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -25,31 +26,47 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col px-4">
-      {/* Toggle button only visible on mobile */}
-      <div className="lg:hidden flex justify-between items-center my-4 bg-[#75A500] text-white px-4 py-2">
-        <h1 onClick={toggleSidebar} className="text-xl font-semibold">
-          Explore All Collections
-        </h1>
-        <MdArrowOutward />
-      </div>
+    <div className="flex flex-col">
+      {/* Sidebar toggle button */}
+      <button
+        onClick={toggleSidebar}
+        className={`text-2xl flex z-50 h-s  bg-[#75A500] absolute top-1/2 left-0 ${
+          sidebarOpen ? "text-white" : "text-black"
+        }`}
+      >
+        {sidebarOpen ? (
+          ""
+        ) : (
+          <h1 className="flex text-white items-center py-2">
+            <p className="text-base">Explore</p>
+            <IoIosArrowForward />
+          </h1>
+        )}
+      </button>
 
-      <div className="flex flex-col lg:flex-row">
-        {/* Sidebar with conditional rendering */}
+      <div className="flex flex-col">
+        {/* Sidebar with slide-in/out animation */}
         <div
-          className={`${
-            sidebarOpen ? "block" : "hidden"
-          } lg:block w-ful lg:w-[25vw] pr-4 pt-4 bg-white fixed lg:static lg:bg-transparent z-10 lg:z-0`}
+          className={`transform top-0 left-0 h-full w-full max-w-xs bg-white fixed z-40 transition-transform duration-300 ease-in-out ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
+          {/* Sidebar close button */}
+          <button
+            onClick={toggleSidebar}
+            className="text-2xl absolute top-1 right-4 z-50 text-red-800"
+          >
+            <IoMdClose />
+          </button>
           <SideBar />
           <ReviewCarousel />
         </div>
 
-        <div className="w-full lg:w-[75vw] lg:pl-4">
+        <div className="w-full">
           <Carousel images={images} />
 
           {/* Hover Card */}
-          <div className="flex flex-col md:flex-row gap-2 my-2">
+          <div className="flex justify-between gap-2 my-2">
             <HoverCard />
             <HoverCard />
             <HoverCard />
@@ -67,7 +84,7 @@ const Home = () => {
               alt=""
               className="w-full object-cover"
             />
-            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 uppercase text-white text-2xl font-semibold w-full px-8 md:px-32 text-center">
+            <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 uppercase text-white text-2xl font-semibold w-full px-8 text-center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. At, quas.
             </h1>
           </div>
@@ -75,8 +92,18 @@ const Home = () => {
           {/* Recently Viewed */}
           <RecentlyViewed />
 
+          {/* Best / Top Selling */}
+          <div className="flex w-full my-4  px-8 justify-between gap-4">
+            <BestSelling />
+            <TopSelling />
+          </div>
+
+          
+
           {/* Product Categories */}
           <ProductCategories />
+
+          <HomeFooterCards />
         </div>
       </div>
       <FeatureHighlights />

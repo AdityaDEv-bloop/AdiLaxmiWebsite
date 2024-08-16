@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const Carousel = ({ images }) => {
@@ -16,6 +16,14 @@ const Carousel = ({ images }) => {
     setCurrentIndex(newIndex);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 2000); // Change slide every 1 second
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [currentIndex]); // Depend on currentIndex to keep updating
+
   return (
     <div className="w-full h-[300px] md:h-[500px] relative group">
       {/* Images */}
@@ -24,19 +32,19 @@ const Carousel = ({ images }) => {
         className="w-full h-full bg-center bg-cover duration-500"
       ></div>
       {/* Left Arrow */}
-      <div
+      {/* <div
         className="absolute top-1/2 -translate-y-1/2 left-5 text-2xl text-white bg-black/20 rounded-full p-2 cursor-pointer group-hover:bg-black/50 transition duration-300"
         onClick={prevSlide}
       >
         <FaChevronLeft size={30} />
-      </div>
+      </div> */}
       {/* Right Arrow */}
-      <div
+      {/* <div
         className="absolute top-1/2 -translate-y-1/2 right-5 text-2xl text-white bg-black/20 rounded-full p-2 cursor-pointer group-hover:bg-black/50 transition duration-300"
         onClick={nextSlide}
       >
         <FaChevronRight size={30} />
-      </div>
+      </div> */}
       {/* Dots */}
       {/* <div className="flex justify-center py-2 ">
         {images.map((_, index) => (

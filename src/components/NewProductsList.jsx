@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import { FaQuestion } from "react-icons/fa6";
 
 function NewProductList() {
   const [products, setProducts] = useState([]);
@@ -31,11 +32,11 @@ function NewProductList() {
   };
 
   return (
-    <div className="">
-      <h1 className="text-2xl uppercase font-semibold my-4 border-b-[1px]">
-        What's New
+    <div className="px-8">
+      <h1 className="text-3xl w-full flex items-center justify-center gap-2 text-center uppercase font-semibold my-4 border-b-[1px]">
+        What's New <FaQuestion className="bg-[#75A500] text-white p-1" />
       </h1>
-      <div className="flex justify-start gap-3 flex-wrap">
+      <div className="flex justify-between gap-3 flex-wrap">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

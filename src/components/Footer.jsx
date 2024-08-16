@@ -27,6 +27,8 @@ const Footer = () => {
 
   return (
     <footer className="mt-4">
+      <hr />
+      <br />
       <div className="container mx-auto">
         {/* Desktop View */}
         <div className="hidden md:grid grid-cols-4 gap-8">

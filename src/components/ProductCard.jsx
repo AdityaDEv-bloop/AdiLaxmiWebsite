@@ -59,9 +59,11 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Product Details */}
-      <div className="py-2 flex justify-between">
-        <h3 className="text-md font-semibold text-gray-700 capital">{product.title}</h3>
-        <div className="text-md font-semibold text-end">Rs. 10000/-</div>
+      <div className="px-4 py-2">
+        <h3 className="text-md font-semibold text-gray-700 uppercase">
+          {product.title}
+        </h3>
+        <div className="text-md font-semibold">₹ 10000/-</div>
       </div>
     </div>
   );

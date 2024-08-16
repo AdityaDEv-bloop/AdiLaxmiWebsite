@@ -5,21 +5,26 @@ const HoverCard = () => {
 
   return (
     <div
-      className="w-96 relative h-60 border-2 transition-all ease-in-out "
+      className="relative group w-full max-w-md mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
         src={
           isHovered
-            ? "https://images.unsplash.com/photo-1709884735017-114f4a31f944?q=80&w=1529&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            : "https://images.unsplash.com/photo-1709884735646-897b57461d61?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT87eEkFXQmmzTiPVKXNjE6YVW_kvieSlUrhg&s"
+            : "https://img.freepik.com/free-vector/gradient-world-tourism-day-illustration_52683-129641.jpg"
         }
-        alt=""
+        alt="Hoverable"
+        className="w-full h-auto object-cover transition-transform duration-300"
       />
-      <h1 className="absolute h-full w-full  top-0 text-4xl text-white   flex items-center">
-        <p className="font-semibold"> Any Text</p>
-      </h1>
+      <div
+        className={`absolute inset-0 flex items-center justify-center text-white text-center transition-opacity duration-300 ${
+          isHovered ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <span className="text-2xl font-bold">Your Text Here</span>
+      </div>
     </div>
   );
 };
