@@ -48,7 +48,7 @@ const TopSelling = () => {
   };
 
   return (
-    <div className="w-1/2 flex flex-col">
+    <div className="w-full flex flex-col">
       <div className="flex justify-between items-center border-b-2 mb-2">
         <h1 className="text-2xl uppercase font-semibold my-4 ">Top Selling</h1>
 

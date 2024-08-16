@@ -1,6 +1,5 @@
-// Cart.js
 import React, { useState } from 'react';
-import { FaDollarSign, FaRegEdit, FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([
@@ -35,15 +34,15 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row">
       {/* Left Side: Product List */}
-      <div className="w-3/4 p-4 border-r border-gray-300 ">
+      <div className="lg:w-3/4 p-4 border-b lg:border-r lg:border-b-0 border-gray-300">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Cart Items</h2>
         <ul>
           {cartItems.map(item => (
             <li
               key={item.id}
-              className="flex items-center mb-4 p-4 border-b border-gray-200 bg-white rounded-lg  transition-transform transform "
+              className="flex items-center mb-4 p-4 border-b border-gray-200 bg-white rounded-lg transition-transform transform"
             >
               <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg mr-4" />
               <div className="flex-1">
@@ -59,10 +58,10 @@ const Cart = () => {
       </div>
 
       {/* Right Side: Totals */}
-      <div className="w-1/4 p-4">
+      <div className="lg:w-1/4 p-4">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Summary</h2>
         <div className="text-lg">
-          <div className="mb-4 p-4 border border-gray-300 rounded-lg bg-gray-50 ">
+          <div className="mb-4 p-4 border border-gray-300 rounded-lg bg-gray-50">
             <div className="flex justify-between mb-2">
               <span className="font-semibold">Subtotal: </span>
               <span>₹{calculateTotal()}</span>

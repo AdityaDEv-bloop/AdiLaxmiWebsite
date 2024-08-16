@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowForward, IoMdClose } from "react-icons/io";
-import BestSelling from "../components/BestSelling.jsx";
+
 import Carousel from "../components/Carousel";
 import FeatureHighlights from "../components/FeatureHighlights";
 import HomeFooterCards from "../components/HomeFooterCards";
@@ -10,7 +10,7 @@ import ProductCategories from "../components/ProductCategories";
 import RecentlyViewed from "../components/RecentlyViewed";
 import ReviewCarousel from "../components/ReviewCarousel";
 import SideBar from "../components/SideBar";
-import TopSelling from "../components/TopSelling.jsx";
+import TopBest from "../components/TopBest";
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -37,7 +37,7 @@ const Home = () => {
         {sidebarOpen ? (
           ""
         ) : (
-          <h1 className="flex text-white items-center py-2">
+          <h1 className="flex text-white items-center py-2 pl-1">
             <p className="text-base">Explore</p>
             <IoIosArrowForward />
           </h1>
@@ -93,10 +93,8 @@ const Home = () => {
           <RecentlyViewed />
 
           {/* Best / Top Selling */}
-          <div className="flex w-full my-4  px-8 justify-between gap-4">
-            <BestSelling />
-            <TopSelling />
-          </div>
+          <TopBest />
+          
 
           
 

@@ -31,9 +31,9 @@ const DoppKitsPage = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col lg:flex-row">
       {/* Sidebar for Filters */}
-      <aside className="w-1/4 p-4">
+      <aside className="w-full lg:w-1/4 p-4 border-b lg:border-b-0 lg:border-r border-gray-300">
         <h2 className="text-xl font-bold mb-4">Filters</h2>
         <div className="mb-4">
           <label className="block text-sm font-semibold mb-2">Sort By</label>
@@ -55,7 +55,7 @@ const DoppKitsPage = () => {
       </aside>
 
       {/* Main Content for Product List */}
-      <main className="w-3/4 ">
+      <main className="w-full lg:w-3/4 p-4">
         <h1 className="text-2xl font-bold my-4">Product List</h1>
         <div className="flex flex-wrap gap-2">
           {products.map((product) => (
