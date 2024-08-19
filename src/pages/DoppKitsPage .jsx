@@ -5,7 +5,8 @@ const DoppKitsPage = () => {
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     sortBy: "relevance", // default sorting
-    priceRange: [0, 10000],
+    priceRange: 10000, // default price range
+    categories: [], // default categories
   });
 
   useEffect(() => {
@@ -30,19 +31,34 @@ const DoppKitsPage = () => {
     setFilters((prevFilters) => ({ ...prevFilters, ...newFilter }));
   };
 
+  // Function to handle category checkbox changes
+  const handleCategoryChange = (category) => {
+    setFilters((prevFilters) => {
+      const newCategories = prevFilters.categories.includes(category)
+        ? prevFilters.categories.filter((cat) => cat !== category)
+        : [...prevFilters.categories, category];
+      return { ...prevFilters, categories: newCategories };
+    });
+  };
+
+  // Function to handle price range slider changes
+  const handlePriceRangeChange = (event) => {
+    handleFilterChange({ priceRange: parseInt(event.target.value, 10) });
+  };
+
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Sidebar for Filters */}
       <aside className="w-full lg:w-1/4 p-4 border-b lg:border-b-0 lg:border-r border-gray-300">
         <h2 className="text-xl font-bold mb-4">Filters</h2>
+
+        {/* Sort By Filter */}
         <div className="mb-4">
           <label className="block text-sm font-semibold mb-2">Sort By</label>
           <select
             className="w-full border rounded p-2"
             value={filters.sortBy}
-            onChange={(e) =>
-              handleFilterChange({ sortBy: e.target.value })
-            }
+            onChange={(e) => handleFilterChange({ sortBy: e.target.value })}
           >
             <option value="relevance">Relevance</option>
             <option value="priceLowHigh">Price: Low to High</option>
@@ -51,7 +67,58 @@ const DoppKitsPage = () => {
             <option value="bestSelling">Best Selling</option>
           </select>
         </div>
-        {/* Additional filters like price range, categories, etc., can be added here */}
+
+        {/* Category Filter */}
+        <div className="mb-4">
+          <label className="block text-sm font-semibold mb-2">Category</label>
+          <div className="flex flex-col">
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                className="form-checkbox"
+                checked={filters.categories.includes("men")}
+                onChange={() => handleCategoryChange("men")}
+              />
+              <span className="ml-2">Men</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                className="form-checkbox"
+                checked={filters.categories.includes("women")}
+                onChange={() => handleCategoryChange("women")}
+              />
+              <span className="ml-2">Women</span>
+            </label>
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                className="form-checkbox"
+                checked={filters.categories.includes("kids")}
+                onChange={() => handleCategoryChange("kids")}
+              />
+              <span className="ml-2">Kids</span>
+            </label>
+          </div>
+        </div>
+
+        {/* Price Range Filter */}
+        <div className="mb-4">
+          <label className="block text-sm font-semibold mb-2">Price Range</label>
+          <div className="flex flex-col">
+            <label>
+              Max Price: ₹{filters.priceRange}
+              <input
+                type="range"
+                min="0"
+                max="100000"
+                value={filters.priceRange}
+                onChange={handlePriceRangeChange}
+                className="w-full"
+              />
+            </label>
+          </div>
+        </div>
       </aside>
 
       {/* Main Content for Product List */}
